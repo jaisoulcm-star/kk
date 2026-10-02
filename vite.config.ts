@@ -28,9 +28,9 @@ export default defineConfig(({mode}) => {
     server: {
       port: 3000,
       host: '0.0.0.0',
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
-      hmr: process.env.DISABLE_HMR !== 'true',
+      // The preview proxy does not keep Vite's development WebSocket open.
+      // Disable HMR so the client does not repeatedly report closed sockets.
+      hmr: false,
     },
   };
 });
