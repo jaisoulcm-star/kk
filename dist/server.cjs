@@ -848,7 +848,11 @@ app.use(errorHandler);
 async function initializeServer() {
   if (process.env.NODE_ENV !== "production") {
     const vite = await (0, import_vite.createServer)({
-      server: { middlewareMode: true },
+      server: {
+        middlewareMode: true,
+        // The v0 preview proxies HTTP but does not support Vite's HMR WebSocket.
+        hmr: false
+      },
       appType: "spa"
     });
     app.use(vite.middlewares);
