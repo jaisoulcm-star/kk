@@ -29,8 +29,9 @@ export default defineConfig(({mode}) => {
       port: 3000,
       host: '0.0.0.0',
       // The preview proxy does not keep Vite's development WebSocket open.
-      // Disable HMR so the client does not repeatedly report closed sockets.
+      // The preview proxy does not support Vite's development WebSocket.
       hmr: false,
+      ws: false,
     },
   };
 });
