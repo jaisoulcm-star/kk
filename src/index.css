@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Montserrat", sans-serif;
+
+  --color-heritage-cream: #f4f8f5;
+  --color-heritage-maroon: #143d24;
+  --color-heritage-gold: #65a30d;
+  --color-heritage-gold-light: #a3e635;
+  --color-heritage-olive: #1b4332;
+  --color-heritage-ink: #111d15;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    background-color: #f4f8f5;
+  }
+
+  body {
+    @apply bg-heritage-cream text-stone-800 font-sans antialiased selection:bg-heritage-gold selection:text-white transition-colors duration-300;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-bold tracking-tight text-stone-900;
+  }
+}
+
+/* Custom Unique Utilities */
+
+.zari-text {
+  color: #65a30d; /* SOLID FALLBACK */
+  background: linear-gradient(
+    to right,
+    #65a30d 0%,
+    #84cc16 25%,
+    #facc15 50%,
+    #84cc16 75%,
+    #65a30d 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+  text-shadow: 0 0 30px rgba(101, 163, 13, 0.15);
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.agri-border-top {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(101, 163, 13, 0.3) 10px,
+      rgba(101, 163, 13, 0.3) 11px
+    ),
+    linear-gradient(to right, var(--color-heritage-maroon), #0a2214);
+  height: 8px;
+  width: 100%;
+}
+
+.silk-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  pointer-events: none;
+}
+
+.boutique-frame {
+  @apply relative p-1;
+  background: linear-gradient(
+    45deg,
+    var(--color-heritage-gold),
+    transparent,
+    var(--color-heritage-gold)
+  );
+  background-size: 200% 200%;
+  animation: border-flow 6s ease infinite;
+}
+
+@keyframes border-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.glass-nav {
+  @apply bg-white/80 backdrop-blur-xl border-b border-heritage-gold/20;
+}
+
+.agri-pattern {
+  background-image: radial-gradient(
+    var(--color-heritage-gold) 0.5px,
+    transparent 0.5px
+  );
+  background-size: 24px 24px;
+  opacity: 0.2;
+}
+
+.silk-gradient {
+  background: linear-gradient(135deg, var(--color-heritage-maroon) 0%, #0a2214 100%);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
