@@ -851,7 +851,8 @@ async function initializeServer() {
       server: {
         middlewareMode: true,
         // The v0 preview proxies HTTP but does not support Vite's HMR WebSocket.
-        hmr: false
+        hmr: false,
+        ws: false
       },
       appType: "spa"
     });
